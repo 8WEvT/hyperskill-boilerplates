@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         /* Create a callable */
         final Callable<Integer> generator = () -> {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5L);
             return 700000;
         };
 
@@ -32,7 +32,7 @@ public class Main {
 
         final Future<Integer> future = executor.submit(() -> {
             /* to get 'TimeoutException' increase this value to 15 */
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5L);
             /* uncomment next line to get 'ExecutionException', remove return */
 //            throw new Exception(Thread.currentThread().getName());
             return 700000;
@@ -68,12 +68,12 @@ public class Main {
         executor = Executors.newFixedThreadPool(4);
 
         Future<Integer> future1 = executor.submit(() -> {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5L);
             return 700000;
         });
 
         Future<Integer> future2 = executor.submit(() -> {
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5L);
             return 900000;
         });
 
